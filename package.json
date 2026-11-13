@@ -1,0 +1,18 @@
+{
+  "name": "football-legacy-27-server",
+  "version": "2.0.0",
+  "description": "Servidor online (Socket.IO) para Football Legacy 27",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
