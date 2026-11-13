@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "football-legacy-27",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-11-01",
+
+  // La página (public/index.html) y el servidor online salen del mismo Worker.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ws", "/health", "/healthz"]
+  },
+
+  // Un único Durable Object ("hub") gestiona todas las salas.
+  "durable_objects": {
+    "bindings": [{ "name": "HUB", "class_name": "GameHub" }]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["GameHub"] }
+  ],
+
+  "vars": {
+    // Dominios autorizados para conectarse (separados por comas). Vacío = cualquiera.
+    // Ejemplo: "https://football-legacy-27.tu-usuario.workers.dev"
+    "ALLOWED_ORIGINS": ""
+  },
+
+  "observability": { "enabled": true }
+}

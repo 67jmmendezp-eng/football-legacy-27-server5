@@ -1,18 +1,13 @@
 {
-  "name": "football-legacy-27-server",
-  "version": "2.0.0",
-  "description": "Servidor online (Socket.IO) para Football Legacy 27",
-  "main": "server.js",
+  "name": "football-legacy-27",
+  "version": "3.0.0",
   "private": true,
+  "description": "Football Legacy 27 · juego + servidor online en Cloudflare Workers (Durable Objects)",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
-  "engines": {
-    "node": ">=18"
-  },
-  "dependencies": {
-    "express": "^4.21.2",
-    "socket.io": "^4.8.1"
+  "devDependencies": {
+    "wrangler": "^4"
   }
 }
